@@ -18,7 +18,7 @@ function setup() {
 
   // Define and create first instance of kinectron
   var kinectronIpAddress1 = ""; // FILL IN YOUR KINECTRON IP ADDRESS HERE
-  kinectron1 = new Kinectron(kinectronIpAddress1);
+  kinectron1 = new Kinectron();
 
   // Define and create second instance of kinectron
   var kinectronIpAddress2 = ""; // FILL IN YOUR KINECTRON IP ADDRESS HERE

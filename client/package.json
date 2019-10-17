@@ -7,9 +7,7 @@
     "kinectron-api": "kinectron.bundle.js"
   },
   "dependencies": {
-    "browserify": "16.1.1",
-    "peerjs": "^1.1.0",
-    "watchify": "3.11.0"
+    "peerjs": "^1.1.0"
   },
   "devDependencies": {},
   "scripts": {
