@@ -1,9 +1,6 @@
-(function(window) {
+import Peer from 'peerjs';
 
-// Import Peer.js 
-var Peer = require('peerjs');
-
-Kinectron = function(arg1, arg2) {  
+var Kinectron = function(arg1, arg2) {  
   this.img = null;
   this.feed = null;
   this.body = null;
@@ -121,12 +118,12 @@ Kinectron = function(arg1, arg2) {
 
   // Used for raw depth processing. 
   // TO DO refactor: create dynamically in process raw depth
-  hiddenCanvas = document.createElement("canvas");
+  var hiddenCanvas = document.createElement("canvas");
   hiddenCanvas.width = 512;
   hiddenCanvas.height = 424;
-  hiddenContext = hiddenCanvas.getContext("2d");
+  var hiddenContext = hiddenCanvas.getContext("2d");
   hiddenContext.fillRect(0, 0, hiddenCanvas.width, hiddenCanvas.height);
-  hiddenImage = document.createElement("img");
+  var hiddenImage = document.createElement("img");
 
   myDiv.appendChild(hiddenCanvas);
   myDiv.appendChild(hiddenImage);
@@ -805,9 +802,6 @@ Kinectron = function(arg1, arg2) {
     newMediaRecorder.start();
     return newMediaRecorder;
   };
-
-
-  
 };
 
-})(window);
+window.Kinectron = Kinectron;
