@@ -5,10 +5,6 @@ const socket = io.connect("http://localhost:3000");
 // let peer;
 const room = "foo"; // Could prompt for room name: // room = prompt('Enter room name:');
 
-let localVideo = document.querySelector("#localVideo");
-let remoteVideo = document.querySelector("#remoteVideo");
-let localStream;
-
 let isChannelReady = false;
 let isInitiator = false;
 let isStarted = false;
@@ -68,7 +64,7 @@ socket.on("message", message => {
     console.log("Client received message:", message);
   }
 
-  if (message === "got user media") {
+  if (message === "start peer connection") {
     maybeStart();
   } else if (message.type === "sending signal") {
     console.log("receiving simple signal data");
@@ -88,3 +84,23 @@ function sendMessage(message) {
   console.log("Client sending message: ", message);
   socket.emit("message", message);
 }
+
+function init() {
+  sendMessage("start peer connection");
+  if (isInitiator) {
+    maybeStart();
+  }
+}
+
+function maybeStart() {
+  console.log(">>>>>>> maybeStart() ", isStarted, isChannelReady);
+  if (!isStarted && isChannelReady) {
+    console.log(">>>>>> creating peer connection");
+    console.log("isInitiator", isInitiator);
+
+    createPeerConnection(isInitiator);
+    isStarted = true;
+  }
+}
+
+window.socketClient = socket;
