@@ -21,7 +21,7 @@ function setup() {
 
   // Define and create an instance of kinectron
   let kinectronIpAddress = ""; // FILL IN YOUR KINECTRON IP ADDRESS HERE
-  kinectron = new Kinectron(kinectronIpAddress);
+  kinectron = new Kinectron();
 
   // Set kinect type to windows
   kinectron.setKinectType("windows");

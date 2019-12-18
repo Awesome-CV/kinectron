@@ -33,6 +33,22 @@ app.on("ready", function() {
   //Use for testing
   //mainWindow = new BrowserWindow({width:1200, height:800});
 
+  // for https
+
+  // SSL/TSL: this is the self signed certificate support
+  app.on(
+    "certificate-error",
+    (event, webContents, url, error, certificate, callback) => {
+      // On certificate error we disable default behaviour (stop loading the page)
+      // and we then say "it is all fine - true" to the callback
+      event.preventDefault();
+      callback(true);
+    }
+  );
+
+  // app.commandLine.appendSwitch("ignore-certificate-errors", "true");
+  // app.commandLine.appendSwitch("allow-insecure-localhost", "true");
+
   // and load the index.html of the app.
   mainWindow.loadURL("file://" + __dirname + "/index.html");
 

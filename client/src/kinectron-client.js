@@ -95,7 +95,7 @@ const Kinectron = function(arg1, arg2) {
   // Peer variables and defaults
   var peer = null;
   var connection = null;
-  var peerNet = { host: "localhost", port: 9001, path: "/" }; // Connect to localhost by default
+  var peerNet = { secure: true, host: "localhost", port: 443, path: "/" }; // Connect to localhost by default
   var peerId = "kinectron"; // Connect to peer Id Kinectron by default
 
   // Hidden div variables

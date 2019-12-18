@@ -31,7 +31,7 @@ function setup() {
 
   // Define and create an instance of kinectron
   let kinectronIpAddress = ""; // FILL IN YOUR KINECTRON IP ADDRESS HERE
-  kinectron = new Kinectron(kinectronIpAddress);
+  kinectron = new Kinectron();
 
   // Set kinect type to azure
   kinectron.setKinectType("azure");
@@ -45,6 +45,7 @@ function setup() {
 }
 
 function bodyTracked(body) {
+  debugger;
   background(0, 20);
 
   // Get all the joints off the tracked body and do something with them
